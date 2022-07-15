@@ -1,0 +1,26 @@
+package GameInit
+import ClosureTimers
+import PlayerClass
+import Constants
+
+timer turn 
+
+function start()
+
+	let playerRed = new PlayerClass(Player(0))
+	playerRed.addGold()
+
+	print(playerRed.playerID)
+
+	let playerBlue = new PlayerClass(Player(1))
+	playerBlue.addGold()
+
+
+	
+function economy()
+
+
+init
+	doAfter(0.025, () -> start())
+	turn.startPeriodic(60., () -> economy())
+		

@@ -1,0 +1,19 @@
+package PlayerClass
+
+public class PlayerClass
+    player p
+    int playerID
+    string name
+    int gold
+    int lumber
+
+    construct(player p)
+        this.p = p
+        playerID = GetPlayerId(p)
+
+    function addGold ()
+        int farms = 10
+        int goldperfarm = 2
+
+        p.addGold(farms * goldperfarm)
+
