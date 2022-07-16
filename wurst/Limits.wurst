@@ -1,0 +1,9 @@
+package Limits
+
+import Constants
+
+
+public function setLimits()
+    SetPlayerTechMaxAllowedSwap(BUI_GRANJA, 20, GetEnumPlayer())
+    SetPlayerTechMaxAllowedSwap(BUI_TRINCHERA, 0, GetEnumPlayer())
+

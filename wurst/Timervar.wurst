@@ -1,0 +1,14 @@
+package Timervar
+import ClosureTimers
+import Limits
+import TimerDialog
+
+timer turn
+
+function timerWindows()
+    timerdialog turnDialog = turn.createTimerDialog()
+    turnDialog.setTitle("Turno")
+
+init
+    doAfter(5., () -> turn.startPeriodic(60., () -> setLimits()))
+    doAfter(5., () -> timerWindows())

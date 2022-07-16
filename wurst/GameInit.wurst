@@ -1,26 +1,50 @@
 package GameInit
 import ClosureTimers
-import PlayerClass
 import Constants
+import Player
+import Fogmodifier
+import Limits
 
-timer turn 
+public constant force pgroup = GetPlayersAll()
+public constant force nativesgroup = GetForceOfPlayer(players[10])
+
+// Yes I'm a negga forgive me I made this in one day
+int a = 0
+int b = 0
+int c = 0
 
 function start()
 
-	let playerRed = new PlayerClass(Player(0))
-	playerRed.addGold()
+	pgroup.forEach(function fogOfWar)
 
-	print(playerRed.playerID)
+	pgroup.forEach(function setPlayersName)
+	pgroup.forEach(function setPlayersGold)
 
-	let playerBlue = new PlayerClass(Player(1))
-	playerBlue.addGold()
+	pgroup.forEach(function setLimits)
 
+	SetForceAllianceStateBJ(pgroup, pgroup, bj_ALLIANCE_ALLIED_VISION)
+	SetForceAllianceStateBJ(pgroup, pgroup, bj_ALLIANCE_ALLIED)
 
-	
-function economy()
+	SetForceAllianceStateBJ(nativesgroup, pgroup, bj_ALLIANCE_UNALLIED)
+	SetForceAllianceStateBJ(pgroup, nativesgroup, bj_ALLIANCE_UNALLIED)
 
+function setPlayersName() 
+	SetPlayerName(players[a],NAMES[a] + GetPlayerName(players[a]))
+	a++
+
+function setPlayersGold()
+	SetPlayerState(players[b], PLAYER_STATE_RESOURCE_GOLD, GOLD[b])
+	b++
+
+function fogOfWar()
+	createVision(GetEnumPlayer(), gg_rct_Punto2, TRUE)
+	createVision(GetEnumPlayer(), gg_rct_Punto3, TRUE)
+	createVision(GetEnumPlayer(), gg_rct_Punto4, TRUE)
+	c++
 
 init
+
 	doAfter(0.025, () -> start())
-	turn.startPeriodic(60., () -> economy())
-		
+
+	
+
