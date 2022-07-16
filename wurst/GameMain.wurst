@@ -1,0 +1,20 @@
+package GameMain
+import ClosureTimers
+import PlayerData
+import Constants
+
+function start()
+
+	let p1 = new PlayerData(Player(0), NAME_RED)
+
+
+	let p2 = new PlayerData(Player(1), NAME_BLUE)
+
+	
+function economy()
+
+
+init
+	doAfter(0.025, () -> start())
+	// turn.startPeriodic(60., () -> economy())
+		

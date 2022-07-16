@@ -1,0 +1,19 @@
+package PlayerData
+
+public class PlayerData
+    player playerdata
+    int playerID
+    string pname
+
+
+    construct (player p, string name)
+        this.playerdata = p
+        this.playerID = GetPlayerId(playerdata)
+        this.pname = name
+        setName(this.playerdata,this.pname)
+
+
+    function setName(player p, string name)
+        SetPlayerName(p, name)
+
+

@@ -1,4 +1,4 @@
 package Constants
 
-public constant string PLAYER_RED = "Virreinato del Alto Peru"
-public constant string PLAYER_BLUE = "Ejercito del Norte"
+public constant string NAME_RED = "Virreinato del Alto Peru"
+public constant string NAME_BLUE = "Ejercito del Norte"

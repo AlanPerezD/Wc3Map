@@ -1,0 +1,18 @@
+package GroupUnitData
+import PlayerData
+
+public class GroupUnitData 
+    // group groupUnit
+    // unit u
+    // boolexpr b
+    // construct (group g)
+    //     this.groupUnit.enumUnitsOfPlayer( null)
+
+
+    // function getGroupUnit()
+
+    // function setGroupUnit()
+
+    // function 
+
+    
