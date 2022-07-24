@@ -2,13 +2,17 @@ package Timervar
 import ClosureTimers
 import Limits
 import TimerDialog
+import TimerUtils
 
-timer turn
+public constant timer turn = getTimer()
 
 function timerWindows()
-    timerdialog turnDialog = turn.createTimerDialog()
+
+    turn.startPeriodic(20., () -> incomePerTurn())
+    let turnDialog = turn.createTimerDialog()
     turnDialog.setTitle("Turno")
+    turnDialog.display(true)
 
 init
-    doAfter(5., () -> turn.startPeriodic(60., () -> setLimits()))
+
     doAfter(5., () -> timerWindows())

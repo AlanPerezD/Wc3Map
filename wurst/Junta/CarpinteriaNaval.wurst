@@ -1,0 +1,20 @@
+package CarpinteriaNaval
+import RegisterEvents
+import Constants
+
+function checkUnit()
+    let p = GetOwningPlayer(GetTriggerUnit())
+    let trainedUnit = GetTrainedUnit()
+    let unitID = GetUnitTypeId(trainedUnit)
+
+    if GetPlayerTechCountSimple(JUNT_CARPINTERIA_NAVAL, p) == 1
+        if unitID == DESTRUCTOR
+            p.addLumber(500)
+        if unitID == GALEON
+            p.addLumber(150)
+        if unitID == FRAGATA
+            p.addLumber(75)
+        
+        
+init 
+    registerPlayerUnitEvent(EVENT_PLAYER_UNIT_TRAIN_FINISH, () -> checkUnit())

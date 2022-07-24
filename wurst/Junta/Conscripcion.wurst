@@ -1,0 +1,19 @@
+package Conscripcion
+import RegisterEvents
+import Constants
+import Unit
+import Orders
+
+function checkUnit()
+    let trainedUnit = GetTrainedUnit()
+    let rack = GetTriggerUnit()
+    let p = GetOwningPlayer(rack)
+    let rackID = GetUnitTypeId(rack)
+    let techConscripcion = GetPlayerTechCountSimple(JUNT_CONSCRIPCION, p)
+    if techConscripcion == 1 and GetRandomPercentageBJ() <= 20
+        if rackID == BUI_BARRACAS or rackID == BUI_CENTRO_RECLUTAMIENTO or rackID == BUI_CUARTEL
+            createUnit(p, trainedUnit.getTypeId(), trainedUnit.getPos())
+            ..issuePointOrderById(SpecialOrders.smart, rack.getRallyPoint())
+        
+init
+    registerPlayerUnitEvent(EVENT_PLAYER_UNIT_TRAIN_FINISH, () -> checkUnit())

@@ -3,6 +3,6 @@ projectName: MyWurstProject
 dependencies:
 - https://github.com/wurstscript/wurstStdlib2:pre1.29
 buildMapData:
-  name: MyMapName
-  fileName: MyMapFile
-  author: ale-pc
+  name: Sudamerica 1.41a
+  fileName: Sudamerica 1.41a
+  author: ToniElGordo
