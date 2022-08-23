@@ -1,0 +1,30 @@
+package QuestMenu
+import Quest
+
+function createQuest()
+    new Quest(TRUE)
+    ..setState(QuestState.DISCOVERED)
+    ..setTitle("|c0000FFFFSudamerica|r")
+    ..setDescription("Mapa creado por Machicode \n\nInspirado en los mods de Aoe 3: WOTTA y WOL. \nCualquier recurso utilizado no es de mi propiedad si no de sus respectivos dueños.")
+    ..setIcon("war3mapImported\\BTNGranadier.blp")
+
+    new Quest(TRUE)
+    ..setState(QuestState.DISCOVERED)
+    ..setTitle("|c0000FFFFTesters|r")
+    ..setDescription("Las siguentes personas me ayudaron a testear el mapa en sus versiones tempranas.\nHappykid\nNose\nTyron\nJesus63\nJuaanpzz")
+    ..setIcon("war3mapImported\\BTNPeasants.blp")
+
+    new Quest(FALSE)
+    ..setState(QuestState.DISCOVERED)
+    ..setTitle("|c0000FFFFAlianzas|r")
+    ..setIcon("war3mapImported\\BTNSpanish_Home_City_3_(Blood_Brothers).blp")
+    ..setDescription(
+        "Existen tres acciones diplomaticas:\n"+
+        "-ally (Alianza)\n"+
+        "-neutral (Neutro)\n"+
+        "-unally (guerra)\n\n"+
+        "Ejemplo:\n"+
+        "-Unally red (Para desaliar al jugador rojo)")
+
+init
+    createQuest()

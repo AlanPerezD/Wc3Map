@@ -1,0 +1,65 @@
+// package OficialSpell
+// import RegisterEvents
+// import EventHelper
+// import Constants
+// import ClosureTimers
+
+// constant spellID = 'A011'
+// int maxIndex = 0
+// unit array TargetUnit = []
+// vec2 array PointTarget = []
+// vec2 array PointCaster = []
+// int array counter = []
+// group Group = null
+// int currentIndex = 0
+// unit array Caster = []
+
+// function check ()
+//     if EventData.getSpellAbilityId() == spellID
+//         castEffect()
+
+// function castEffect()
+    
+//     maxIndex = maxIndex + 1
+
+//     TargetUnit[maxIndex] = EventData.getSpellTargetUnit()
+//     Caster[maxIndex] = EventData.getTriggerUnit()
+//     PointCaster[maxIndex] = Caster[maxIndex].getPos()
+//     PointTarget[maxIndex] = TargetUnit[maxIndex].getPos()
+
+//     counter[maxIndex] = 0
+//     if maxIndex == 1
+//         doPeriodically(0.03) (CallbackPeriodic cb) -> 
+//             periodicLoop(cb)
+
+
+// function periodicLoop(CallbackPeriodic cb)
+//     for currentIndex = 1 to maxIndex
+//         counter[currentIndex] = counter[currentIndex] + 1
+//         if counter[currentIndex] == 1
+//             PauseUnit(TargetUnit[currentIndex], TRUE)
+//             let dist = PointCaster[currentIndex].distanceTo(PointTarget[currentIndex])
+//             let pos = Caster[currentIndex].getPos()
+//             let angle = Caster[currentIndex].getFacingAngle()
+//             Caster[currentIndex].setPos(pos.polarOffset(angle, dist - 20))
+//             printTimed(dist.toString(),2) 
+//         if counter[currentIndex] == 100
+//             printTimed("Depaused Unit",2.)
+//             PauseUnit(TargetUnit[currentIndex], FALSE)
+//             // Group.destr()
+//             // RemoveLocation(Point[currentIndex])
+//             TargetUnit[currentIndex] = TargetUnit[maxIndex]
+//             Caster[currentIndex] = Caster[maxIndex]
+//             PointTarget[currentIndex] = PointTarget[maxIndex]
+//             PointCaster[currentIndex] = PointCaster[maxIndex]
+//             counter[currentIndex] = counter[maxIndex]
+//             maxIndex = maxIndex - 1
+//             currentIndex = currentIndex - 1
+//     if maxIndex == 0
+//         printTimed("Destroyed CB",2.)
+//         destroy cb
+                
+            
+// init
+//     registerPlayerUnitEvent(EVENT_PLAYER_UNIT_SPELL_EFFECT, () -> check())
+

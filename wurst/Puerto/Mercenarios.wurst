@@ -1,0 +1,52 @@
+package Mercenarios
+import RegisterEvents
+import Constants
+
+function check()
+    let soldU = GetSoldUnit()
+    let u = GetTriggerUnit()
+    let position = u.getPos()
+    let p = GetOwningPlayer(soldU)
+    let uID = GetUnitTypeId(soldU)
+    let techIndustri = GetPlayerTechCountSimple(UNI_INDUSTRIALIZACION, p)
+    let techMercenarios = GetPlayerTechCountSimple(JUNT_MERCENARIOS_EUROPEOS, p)
+    if uID == MARISCAL 
+        if techIndustri == 1
+            if techMercenarios == 1
+                createUnit(p, uID, position)
+                createUnit(p, uID, position)
+                createUnit(p, uID, position)
+                createUnit(p, uID, position)
+                createUnit(p, uID, position)
+                createUnit(p, uID, position)
+            else
+                createUnit(p, uID, position)
+                createUnit(p, uID, position)
+                createUnit(p, uID, position)
+                createUnit(p, uID, position)
+        else 
+            soldU.remove()
+            p.addGold(200)
+
+    if uID == BANDEIRANTE
+        if techMercenarios == 1
+            createUnit(p, uID, position)
+            createUnit(p, uID, position)
+            createUnit(p, uID, position)
+            createUnit(p, uID, position)
+            createUnit(p, uID, position)
+            createUnit(p, uID, position)
+            createUnit(p, uID, position)
+        else
+            createUnit(p, uID, position)
+            createUnit(p, uID, position)
+            createUnit(p, uID, position)
+            createUnit(p, uID, position)
+            createUnit(p, uID, position)
+
+// function spawnMariscal(int size, vec2 pos, player p)
+    
+// function spawnBandeirante(int size, vec2 pos, player p)
+    
+init
+    registerPlayerUnitEvent(EVENT_PLAYER_UNIT_SELL, () -> check())

@@ -1,0 +1,18 @@
+package Timervar
+import ClosureTimers
+import Limits
+import TimerDialog
+import TimerUtils
+
+public constant timer turn = getTimer()
+
+function timerWindows()
+
+    turn.startPeriodic(60., () -> incomePerTurn())
+    let turnDialog = turn.createTimerDialog()
+    turnDialog.setTitle("Turno")
+    turnDialog.display(true)
+
+init
+
+    doAfter(5., () -> timerWindows())

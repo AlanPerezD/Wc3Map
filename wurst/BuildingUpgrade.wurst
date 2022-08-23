@@ -1,0 +1,25 @@
+package BuildingUpgrade
+import RegisterEvents
+import Trigger
+import Constants
+
+function upgradeAvanzadilla(unit u)
+    replaceUnit(u, BUI_AVANZADILLA)
+
+function checkUpgrade()
+    let u = GetTriggerUnit()
+    if GetUnitTypeId(u) == BUI_AVANZADILLA_BUILDING
+        upgradeAvanzadilla(u)
+
+    if GetUnitTypeId(u) == BUI_DESTACAMENTO_BUILDING
+        upgradeDestacamento(u)
+
+function upgradeDestacamento(unit u)
+    replaceUnit(u, BUI_DESTACAMENTO)
+    
+function replaceUnit(unit u, int uID)
+    ReplaceUnitBJ(u, uID, bj_UNIT_STATE_METHOD_RELATIVE) 
+
+init
+    registerPlayerUnitEvent(EVENT_PLAYER_UNIT_CONSTRUCT_FINISH, () -> checkUpgrade())
+    registerPlayerUnitEvent(EVENT_PLAYER_UNIT_UPGRADE_FINISH, () -> checkUpgrade())

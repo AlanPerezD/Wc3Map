@@ -1,0 +1,28 @@
+package UnitTraining
+import Constants
+import RegisterEvents
+import Group
+
+// function stopTrain()
+   
+
+//     ENUM_GROUP.clear()
+// function check()
+//     let u = GetTrainedUnit()
+//     let uID = GetUnitTypeId(u)
+//     let p = GetOwningPlayer(u)
+//     int size = 0
+//     ENUM_GROUP.add(GetUnitsOfTypeIdAll(BUI_PETROLIFERA))
+//     for a from ENUM_GROUP
+//         if GetOwningPlayer(a) == p
+//             size++
+//             print("Size: 1+")
+
+//     if GetUnitTypeId(u) == DESTRUCTOR and 4 >= size
+//         skip
+//     else
+//         IssueImmediateOrderById(u, 'stop')
+//     size = 0
+//     ENUM_GROUP.clear()
+// init
+//     registerPlayerUnitEvent(EVENT_PLAYER_UNIT_TRAIN_START, () -> check())

@@ -1,0 +1,41 @@
+package Limits
+import ClosureTimers
+import Constants
+import RegisterEvents
+import Trigger
+
+
+
+public function setLimits()
+    SetPlayerTechMaxAllowedSwap(BUI_GRANJA, 20, GetEnumPlayer())
+    SetPlayerTechMaxAllowedSwap(BUI_TRINCHERA, 0, GetEnumPlayer())
+
+function setLimitTrench()
+    SetPlayerTechMaxAllowedSwap(BUI_TRINCHERA, -1, GetTriggerPlayer())
+    SetPlayerTechMaxAllowedSwap(BUI_AVANZADILLA, 0, GetTriggerPlayer())
+
+public function incomePerTurn()
+    TriggerExecute(gg_trg_Granjas)
+    TriggerExecute(gg_trg_Empresa_leera)
+    TriggerExecute(gg_trg_Empresa_leera)
+    TriggerExecute(gg_trg_Coorporacion_leera)
+    TriggerExecute(gg_trg_City_a1_Copiar_2)
+    TriggerExecute(gg_trg_City_a1_Copiar_2_Copiar)
+    TriggerExecute(gg_trg_Resource_Points_Copiar_2)
+    TriggerExecute(gg_trg_Resource_Points_Copiar)
+    TriggerExecute(gg_trg_Resource_Points_Copiar_Copiar_2_Copiar_2)
+    TriggerExecute(gg_trg_Industrias)
+
+function checkTech()
+    if GetResearched() == UNI_MODERNIZACION
+        setLimitTrench()
+
+
+init
+    doAfter(5., () -> setLimits() )
+    trigger t = CreateTrigger()
+    // t.registerAnyUnitEvent(EVENT_PLAYER_UNIT_RESEARCH_FINISH)
+    // t.addCondition(Condition(() -> checkTech()))
+    registerPlayerUnitEvent(EVENT_PLAYER_UNIT_RESEARCH_FINISH, () -> checkTech())
+
+        

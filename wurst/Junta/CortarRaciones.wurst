@@ -1,0 +1,67 @@
+package CortarRaciones
+import RegisterEvents
+import Constants
+
+function checkUnit()
+    let p = GetOwningPlayer(GetTriggerUnit())
+    let trainedUnit = GetTrainedUnit()
+    let unitID = GetUnitTypeId(trainedUnit)
+
+    if GetPlayerTechCountSimple(JUNT_CORTAR_RACIONES,p) == 1
+        if unitID == COLIMB
+            p.addGold(2)
+            p.addLumber(19)
+        if unitID == COLIMB
+            p.addGold(2)
+            p.addLumber(5)
+        if unitID == BACAMARTIER
+            p.addGold(5)
+            p.addLumber(9)
+        if unitID == PIQUERO
+            p.addGold(1)
+            p.addLumber(1)
+        if unitID == PAISANO
+            p.addGold(1)
+            p.addLumber(1)
+        if unitID == MILICIA
+            p.addGold(1)
+            p.addLumber(1)
+        if unitID == MACHETERO
+            p.addGold(1)
+            p.addLumber(1)
+        if unitID == INSURGENTE
+            p.addGold(2)
+            p.addLumber(1)
+        if unitID == REGIMENTAL
+            p.addGold(2)
+            p.addLumber(1)
+        if unitID == LINEA
+            p.addGold(1)
+            p.addLumber(1)
+        if unitID == INDIGENA or unitID == INDIGENA_BOLIVIAN
+            p.addGold(1)
+            p.addLumber(1)
+        if unitID == CUAR_GUERRILLEROS
+            p.addGold(1)
+            p.addLumber(5)
+        if unitID == GRANADERO
+            p.addGold(2)
+            p.addLumber(1)
+        if unitID == FUSILERO
+            p.addGold(1)
+            p.addLumber(3)
+        if unitID == CARABINERO
+            p.addGold(3)
+            p.addLumber(1)
+        if unitID == BATALLON_CIVICO
+            p.addGold(1)
+            p.addLumber(1)
+        if unitID == BALLESTERO
+            p.addGold(1)
+            p.addLumber(1)
+        if unitID == ARQUERO_BOLIVIAN
+            p.addGold(1)
+            p.addLumber(1)
+
+init
+    registerPlayerUnitEvent(EVENT_PLAYER_UNIT_TRAIN_FINISH, () -> checkUnit())

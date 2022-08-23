@@ -1,0 +1,56 @@
+package GameInit
+import ClosureTimers
+import Constants
+import Player
+import Fogmodifier
+import Limits
+
+public constant force pgroup = GetPlayersAll()
+public constant force nativesgroup = GetForceOfPlayer(players[10])
+
+
+function start()
+	// ClearMapMusic()
+	// PlayMusic("war3mapImported\\music1.mp3")
+	pgroup.forEach(function fogOfWar)
+
+	pgroup.forEach(function setPlayersName)
+	pgroup.forEach(function setPlayersGold)
+
+	pgroup.forEach(function setLimits)
+	players[0].setPlayerAlliance(players[2], ALLIANCE_PASSIVE, TRUE)
+	players[0].setPlayerAlliance(players[2], ALLIANCE_SHARED_VISION_FORCED, TRUE)
+function allyVision()
+	players[1].setPlayerAlliance(players[3], ALLIANCE_PASSIVE, TRUE)
+	players[1].setPlayerAlliance(players[3], ALLIANCE_SHARED_VISION, TRUE)
+
+	// for i = 0 to bj_MAX_PLAYER_SLOTS - 1
+	// 	players[1]
+	// SetForceAllianceStateBJ(pgroup, pgroup, bj_ALLIANCE_ALLIED_VISION)
+	// SetForceAllianceStateBJ(pgroup, pgroup, bj_ALLIANCE_ALLIED)
+
+	// SetForceAllianceStateBJ(nativesgroup, pgroup, bj_ALLIANCE_UNALLIED)
+	// SetForceAllianceStateBJ(pgroup, nativesgroup, bj_ALLIANCE_UNALLIED)
+
+function setPlayersName() 
+	let p = GetEnumPlayer()
+	SetPlayerName(p,NAMES[GetPlayerId(p)] + " " + GetPlayerName(p))
+
+function setPlayersGold()
+	let p = GetEnumPlayer()
+	SetPlayerState(p, PLAYER_STATE_RESOURCE_GOLD, GOLD[GetPlayerId(p)])
+
+function fogOfWar()
+	let p = GetEnumPlayer()
+	// createVision(p, gg_rct_Punto2, TRUE)
+	// createVision(p, gg_rct_Punto3, TRUE)
+	// createVision(p, gg_rct_Punto4, TRUE)
+
+init
+
+	doAfter(0.025, () -> start())
+
+
+
+	
+
